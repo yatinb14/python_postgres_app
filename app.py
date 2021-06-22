@@ -12,8 +12,8 @@ def home():
 		con = psycopg2.connect(
 		dbname="postgres",
 		user="postgres",
-		password="yatin123",
-		host="postgres.co6j0vfxv1vw.us-east-2.rds.amazonaws.com"
+		password="yat",
+		host="postgres.co6j0vfxv1v"
 		)
 
 		#cur = con.cursor()
@@ -35,8 +35,8 @@ def register():
 	con = psycopg2.connect(
 		dbname="postgres",
 		user="postgres",
-		password="yatin123",
-		host="postgres.co6j0vfxv1vw.us-east-2.rds.amazonaws.com"
+		password="yat",
+		host="postgres."
 		)
 	if request.method == 'POST':
 		name = request.form['name']
@@ -60,8 +60,8 @@ def users():
 		con = psycopg2.connect(
 		dbname="postgres",
 		user="postgres",
-		password="yatin123",
-		host="postgres.co6j0vfxv1vw.us-east-2.rds.amazonaws.com"
+		password="",
+		host="postgres"
 		)
 		cur = con.cursor()
 		cur.execute("SELECT * FROM userstable")
@@ -81,8 +81,8 @@ def login():
 	con = psycopg2.connect(
 		dbname="postgres",
 		user="postgres",
-		password="yatin123",
-		host="postgres.co6j0vfxv1vw.us-east-2.rds.amazonaws.com"
+		password="ya",
+		host="azonaws.com"
 		)
 
 	
