@@ -29,14 +29,15 @@
 ### Create a table by logging into postgres
 ```
 - psql -h <postgres_db_endpoint> -U postgres -W --dbname postgres
-- After this it will ask you for password. Enter password which you have created
-  while making postgres db in aws.In my case , it is india123.
-- Run command  ***\i userstable.sql*** 
-- When you run query Select * from userstable; You will get output like this.
+- After this it will ask you for password. Enter password which you have created while making postgres db in aws.In my case , it is india123.
+- Run command  \i userstable.sql
+- Run query Select * from userstable;
+  You will get output like this.
 
  id | name | email | town | password
 ----+------+-------+------+----------
 (0 rows)
+
 ```
 
 ### Last step is to run our code
