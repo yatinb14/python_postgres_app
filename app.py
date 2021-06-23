@@ -1,4 +1,5 @@
 import psycopg2
+import os
 from flask import Flask,render_template, redirect, url_for,flash,request,session
 
 
@@ -6,37 +7,20 @@ app = Flask(__name__) #creating the Flask class object
 app.secret_key = 'your secret key'
 
 
-
-@app.route('/', methods=['GET', 'POST'])
-def home():
-		con = psycopg2.connect(
-		dbname="postgres",
-		user="postgres",
-		password="yat",
-		host="postgres.co6j0vfxv1v"
-		)
-
-		#cur = con.cursor()
-		#cur.execute("CREATE TABLE userstable(id serial PRIMARY KEY, name varchar, email varchar, town VARCHAR)")
-
-
-		#con.commit()
-		#cur.close()
-		#con.close()
-		print("Successfully connected!")
-		return "<h1>hello, this is our Demo web page</h1>";
-
-		
-
+PORT_NUMBER = os.getenv("PORT_NUMBER")
+DB_USER = os.getenv("DB_USER")
+DB_PWD = os.getenv("DB_PWD")
+DB_URL = os.getenv("DB_URL")
+DB_DBNAME = os.getenv("DB_DBNAME")
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
 	con = psycopg2.connect(
-		dbname="postgres",
-		user="postgres",
-		password="yat",
-		host="postgres."
+		dbname=DB_DBNAME,
+		user=DB_USER,
+		password=DB_PWD,
+		host=DB_URL
 		)
 	if request.method == 'POST':
 		name = request.form['name']
@@ -58,10 +42,10 @@ def register():
 @app.route('/users', methods=['GET', 'POST'])
 def users():
 		con = psycopg2.connect(
-		dbname="postgres",
-		user="postgres",
-		password="",
-		host="postgres"
+		dbname=DB_DBNAME,
+		user=DB_USER,
+		password=DB_PWD,
+		host=DB_URL
 		)
 		cur = con.cursor()
 		cur.execute("SELECT * FROM userstable")
@@ -79,12 +63,11 @@ def users():
 def login():
 	error = ''
 	con = psycopg2.connect(
-		dbname="postgres",
-		user="postgres",
-		password="ya",
-		host="azonaws.com"
+		dbname= DB_DBNAME,
+		user=DB_USER,
+		password=DB_PWD,
+		host=DB_URL
 		)
-
 	
     # Check if "username" and "password" POST requests exist (user submitted form)
 	if request.method == 'POST' and'email' in request.form and 'password' in request.form:
@@ -120,5 +103,8 @@ def login():
 		
 
 	return render_template('login.html', error=error)
+
+if __name__ == "__main__":
+	app.run(host="0.0.0.0", port=PORT_NUMBER, debug=True)
 
 
