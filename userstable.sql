@@ -1,4 +1,4 @@
-Create table if not exists userstables (
+Create table if not exists userstable (
 	id serial PRIMARY KEY,
 	name VARCHAR ( 50 ) UNIQUE NOT NULL,
 	email VARCHAR ( 255 ) UNIQUE NOT NULL,
