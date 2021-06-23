@@ -14,7 +14,7 @@
   ```
 
 
-### Then clone code ,go inside python_postgres_app folder, install libraries from _requirements.txt_, update  access key and secret access key in _key_config.py_ file,also you need to pass environment var for region_name.
+### Then clone code ,go inside python_postgres_app folder, install libraries from _requirements.txt_, also you need to pass environment vars.
 ```
 - git clone https://github.com/yatinb14/python_postgres_app.git
 - cd python_postgres_app/
@@ -31,7 +31,7 @@
 - psql -h <postgres_db_endpoint> -U postgres -W --dbname postgres
 - After this it will ask you for password. Enter password which you have created
   while making postgres db in aws.In my case , it is india123.
-- Run command  \i userstable.sql 
+- Run command  ***\i userstable.sql*** 
 - When you run query Select * from userstable; You will get output like this.
 
  id | name | email | town | password
